@@ -4,26 +4,27 @@ using namespace std;
 class EAN
 {
 public:
-  const string sideBars = "101";
-  const string middleBars = "01010";
+  //Zmienne określające strukturę generowanego kodu kreskowego
   const int height = 200;
   const int width = 400;
   const int bytes = 3;
   const int bottomEanHeight = height / 4;
   const int topEanHeight = height / 2 + bottomEanHeight;
+
+  //Zmienna przechowująca aktualny indeks piksela na którym rysowane są moduły
   int currentWidthPixel;
+  //Zmienna przechowująca składowe R,G,B (Red, Green, Blue) do wygenerowania bitmapy
   unsigned char ***image;
   char *imageFileName;
   string eanCode;
 
   EAN();
-  string encode(int firstDigit, int index);
+  string encode(int firstDigit);
   void drawFirstGroupBars(string digits, string encoding);
   void drawSecondGroupBars(string digits);
-  void drawSideBars();
-  void drawMiddleBars();
   int calculateCheckSum();
   void generateBitmap();
+  void generatePdf();
   string encodeDigitL(char digit);
   string encodeDigitG(char digit);
   string encodeDigitR(char digit);

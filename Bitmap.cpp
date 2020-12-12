@@ -3,7 +3,6 @@
 using namespace std;
 Bitmap::Bitmap()
 {
-  cout << "Bitmap obj creted .." << endl;
 }
 void Bitmap::generateBitmapImage(unsigned char ***image, int height, int width, char *imageFileName)
 {
